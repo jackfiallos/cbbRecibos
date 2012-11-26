@@ -1,0 +1,28 @@
+extends ../layoutClear
+
+block content
+  form.form-signin(name="frmRegister", id="frmRegister", method="post")
+    h1(style="text-align:center") CBB Recibos
+    p.subheading Registrarse
+    - if (message.description)
+      div.alert.alert-error
+        | !{message.description}
+    hr
+    label(for="inputname") Nombre de Usuario
+    input(type="text", placeholder="Usuario", name="inputname", id="inputname").input-block-level
+    label(for="inputpassword") Clave de Acceso
+    input(type="password", placeholder="Clave", name="inputpassword", id="inputpassword").input-block-level
+    label(for="inputemail") Cuenta de Correo
+    input(type="text", placeholder="Email", name="inputemail", id="inputemail").input-block-level
+    button(type="submit")#btn-login.btn.btn-primary
+      i.icon-plus-sign.icon-white
+      | &nbsp; Registrarse
+    hr
+    div(style="text-align:center")
+      a(href='#')#forgot-password Olvid&oacute; su clave? 
+      || 
+      a(href='/')#create-account Iniciar Sesi&oacute;n
+block scripts
+  script(type='text/javascript', src='js/vendor/bootstrap/bootstrap-modal.js')
+  script(type='text/javascript', src='js/vendor/bootstrap/bootstrap-transition.js')
+  //script(type='text/javascript', src='js/loginController.js')
