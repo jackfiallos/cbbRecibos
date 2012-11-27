@@ -1,5 +1,4 @@
 var Users = require('../models/users');
-var brand = 'Bootstrap for Jade';
 var helper = require('../helpers/html_helper');
 
 exports.index = function(request, response){
@@ -42,7 +41,7 @@ exports.login = function(request, response){
 				response.cookie('user', usr.user, { maxAge: 900000 });
 				response.cookie('pass', usr.pass, { maxAge: 900000 });
 			}
-			response.render('invoices', { title: 'Home', id: 'home', brand: brand });
+			response.redirect('/invoices');
 		}
 	});
 }

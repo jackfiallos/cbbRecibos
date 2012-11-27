@@ -2,4 +2,109 @@ extends ../layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  hr
+  div
+    div.row-fluid
+      div.span6
+        fieldset
+          legend Datos del Cliente
+            div.pull-right
+              a(href='clients/create').btn.btn-primary.btn-small Seleccionar Cliente
+          div.well
+      div.span6
+        fieldset
+          legend Datos del Domicilio
+          div.well
+  form.form-vertical
+    fieldset
+      legend Datos del Comprobante
+      div.row-fluid
+        div.span3
+          div.control-group
+            label(for="txtfechaemision").control-label Fecha de Emision
+            div.controls
+              input(type="text", id="txtfechaemision", name="txtfechaemision", placeholder="2012-12-12")
+              span.help-block Example block-level help text here.
+        div.span3
+          div.control-group
+            label(for="txtfolio").control-label Folio
+            div.controls
+              input(type="text", id="txtfolio", name="txtfolio", placeholder="201")
+              span.help-block Example block-level help text here.
+        div.span3
+          div.control-group
+            label(for="cmbcondiciones").control-label Condiciones de Pago
+            div.controls
+              select(id="cmbcondiciones", name="cmbcondiciones")
+              span.help-block Example block-level help text here.
+        div.span3
+          div.control-group
+            label(for="cmbmetodo").control-label M&eacute;todo de Pago
+            div.controls
+              select(id="cmbmetodo", name="cmbmetodo")
+              span.help-block Example block-level help text here.
+    fieldset
+      legend Lista de Conceptos
+      table.table.table-striped.table-bordered.table-hover
+        thead
+          tr
+            th Cantidad
+            th Concepto
+            th Precio Unitario
+            th Importe
+            th 
+        tbody
+          tr
+            td 
+            td 
+            td 
+            td 
+            td(style="width:5%")
+              a(href="#").btn.btn-small.btn-danger
+                i.icon-remove.icon-white
+          tr
+            td(colspan="5")
+              a(href="#").btn.btn-small.pull-right
+                i.icon-plus
+                | &nbsp; Agregar Concepto
+          tr
+            td(colspan="3")
+              span.pull-right Cantidad
+            td
+              div.cantidad
+            td
+          tr
+            td(colspan="3")
+              span.pull-right I.V.A.
+            td
+              div.iva
+            td
+          tr
+            td(colspan="3")
+              span.pull-right Subtotal
+            td
+              div.subTotal
+            td
+          tr
+            td(colspan="3")
+              span.pull-right Ret. I.V.A.
+            td
+              div.retiva
+            td
+          tr
+            td(colspan="3")
+              span.pull-right Ret. I.S.R.
+            td
+              div.retisr
+            td
+          tr
+            td(colspan="3")
+              span.pull-right TOTAL
+            td
+              div.total
+            td
+
+    div.form-actions
+      button(type="submit").btn.btn-primary Generar
+      | &nbsp;
+      a(href="/invoices").btn Cancelar

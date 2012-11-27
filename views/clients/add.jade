@@ -1,0 +1,81 @@
+extends ../layout
+
+block content
+  h1= title
+    div.pull-right
+      a(href='/clients').btn.btn-primary.btn-small Retornar a la lista de Clientes
+  hr
+  form(method="post").form-horizontal
+    div.row-fluid
+      div.span6
+        fieldset
+          legend Datos del Contribuyente
+          div.control-group
+            label.control-label Tipo de Contribuyente
+            div.controls
+              label(for="chkpersonafisica").radio Persona F&iacute;sica
+                input(type="radio", id="chkpersonafisica", name="chkpersonafisica")
+              label(for="chkpersonamoral").radio Persona Moral
+                input(type="radio", id="chkpersonamoral", name="chkpersonamoral")
+          div.control-group
+            label(for="txtrfc").control-label RFC
+            div.controls
+              input(type="text", id="txtrfc", name="txtrfc", placeholder="AQSW769122S23")
+              span.help-block Example block-level help text here.
+          div.control-group
+            label(for="txtemail").control-label Email
+            div.controls
+              input(type="text", id="txtemail", name="txtemail", placeholder="info@email.com")
+              span.help-block Example block-level help text here.
+          div.control-group
+            label(for="txtrazonsocial").control-label Raz&oacute;n Social
+            div.controls
+              input(type="text", id="txtrazonsocial", name="txtrazonsocial", placeholder="Nombre Empresa S.A. de C.V.")
+              span.help-block Example block-level help text here.
+      div.span6
+        fieldset
+          legend Datos del Domicilio
+          div.control-group
+            label(for="txtcalle").control-label Calle
+            div.controls
+              input(type="text", id="txtcalle", name="txtcalle", placeholder="Calle Verano")
+              span.help-block Example block-level help text here.
+          div.control-group
+            label(for="txtexterior").control-label N&uacute;mero Exterior
+            div.controls
+              input(type="text", id="txtexterior", name="txtexterior", placeholder="212")
+              span.help-block Example block-level help text here.
+          div.control-group
+            label(for="txtinterior").control-label N&uacute;mero Interior
+            div.controls
+              input(type="text", id="txtinterior", name="txtinterior", placeholder="301")
+              span.help-block Example block-level help text here.
+          div.control-group
+            label(for="txtcolonia").control-label Colonia
+            div.controls
+              input(type="text", id="txtcolonia", name="txtcolonia", placeholder="Portales")
+              span.help-block Example block-level help text here.
+          div.control-group
+            label(for="txtmunicipio").control-label Municipio
+            div.controls
+              input(type="text", id="txtmunicipio", name="txtmunicipio", placeholder="Benito Juarez")
+              span.help-block Example block-level help text here.
+          div.control-group
+            label(for="cmbEstado").control-label Estado
+            div.controls
+              select(id="cmbEstado", name="cmbEstado")
+              span.help-block Example block-level help text here.
+          div.control-group
+            label(for="cmbPais").control-label Pais
+            div.controls
+              select(id="cmbPais", name="cmbPais")
+              span.help-block Example block-level help text here.
+          div.control-group
+            label(for="txtcp").control-label C&oacute;digo Postal
+            div.controls
+              input(type="text", id="txtcp", name="txtcp", placeholder="02292")
+              span.help-block Example block-level help text here.
+    div.form-actions
+      button(type="submit").btn.btn-primary Guardar
+      | &nbsp;
+      a(href="/clients").btn Cancelar

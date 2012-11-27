@@ -9,16 +9,21 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a(href='#').brand #{brand}
-          ul.nav
-            - var obj = { '/':'Home', '/logout':'Logout' }
-              - each val, key in obj
-                - if (id == key)
-                  li.active
-                    a(href='#{key}') #{val}
-                - else            
+          a(href='/').brand CBB Recibos
+          div.nav-collapse.collapse
+            ul.nav
+              li
+                a(href="/invoices") Inicio
+            ul.pull-right.nav
+              li.dropdown
+                a.dropdown-toggle(data-toggle='dropdown', href="#") #{username} <span class="caret"></span>
+                ul.dropdown-menu
                   li
-                    a(href='#{key}') #{val}
+                    a(href="/user/preferences") Preferencias
+                  li
+                    a(href="/clients") Clientes
+                  li
+                    a(href="/logout") Salir
     div.container
       block content
       include inc/footer

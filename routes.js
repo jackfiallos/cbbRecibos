@@ -1,5 +1,7 @@
 var siteController = require('./controllers/site'),
-	invoiceController = require('./controllers/invoices');
+	invoiceController = require('./controllers/invoices'),
+	clientsController = require('./controllers/clients'),
+	userController = require('./controllers/user');
 
 /**
  * Routes module definition
@@ -18,6 +20,13 @@ module.exports = function(app){
 
 	// app.get('/restore-password', siteController.restorePassword);
 	// app.post('/restore-password', siteController.restorePasswordForm);
+
+	app.get('/user/preferences', userController.preferences);
+	
+	/** Clients **/
+	app.get('/clients', clientsController.index);
+	app.get('/clients/create', clientsController.add);
+	app.post('/clients/create', clientsController.create);
 
 	/** Invoices **/
 	app.get('/invoices', invoiceController.index);

@@ -1,35 +1,46 @@
 var User = require('../models/users');
-var brand = 'Bootstrap for Jade';
 
 exports.index = function(request, response){
-	response.render('invoices/index', { title: 'Home', id: 'home', brand: brand });
+	if (request.session.user != null) {
+        response.render('invoices/index', { title: 'Lista de recibos emitidos', username:request.session.user.name });
+    }
+    else
+    	response.redirect('/logout');
 };
 
 exports.add = function(request, response){
-	response.render('invoices/add', { title: 'Home', id: 'home', brand: brand });	
+	if (request.session.user != null) {
+		response.render('invoices/add', { title: 'Generar nuevo Recibo', username:request.session.user.name });	
+	}
+    else
+    	response.redirect('/logout');
 }
 
 exports.create = function(request, response){
 	return response.json({
-		status:404,
+		status:400,
 		message:"The server does not support the functionality required to fulfill the request."
 	});
 }
 
 exports.edit = function(request, response){
-	response.render('invoices/edit', { title: 'Home', id: 'home', brand: brand });	
+	if (request.session.user != null) {
+		response.render('invoices/edit', { title: 'Home', username:request.session.user.name });
+	}
+    else
+    	response.redirect('/logout');
 }
 
 exports.update = function(request, response){
 	return response.json({
-		status:404,
+		status:400,
 		message:"The server does not support the functionality required to fulfill the request."
 	});
 }
 
 exports.delete = function(request, response){
 	return response.json({
-		status:404,
+		status:400,
 		message:"The server does not support the functionality required to fulfill the request."
 	});
 }
